@@ -1,6 +1,8 @@
-var name = 'Aman';
-var age = 22;
-var hashHobbies = true;
+const name = 'Aman';
+let age = 22;
+const hashHobbies = true;
+
+age = 23;
 
 function summarizeUser(userName, userAge, userHobby) {
   return (
@@ -8,7 +10,7 @@ function summarizeUser(userName, userAge, userHobby) {
     userName +
     ', age is ' +
     userAge +
-    'and the user has hobbies: ' +
+    ' and the user has hobbies: ' +
     userHobby
   );
 }
