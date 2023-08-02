@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-complete-guide",
+  "version": "1.0.0",
+  "description": "Complete Node.js Guide",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start-server": "node app.js --w"
+  },
+  "author": "Aman07a",
+  "license": "ISC"
+}
