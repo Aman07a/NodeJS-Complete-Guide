@@ -8,5 +8,8 @@
     "start-server": "node app.js --w"
   },
   "author": "Aman07a",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
