@@ -5,3 +5,4 @@ Finished Chapters:
 - Chapter 3: Understanding the Basics
 - Chapter 4: Improved Development Workflow and Debugging
 - Chapter 5: Working with Express.js
+- Chapter 6: Working with Dynamic Content & Adding Templating Engines
