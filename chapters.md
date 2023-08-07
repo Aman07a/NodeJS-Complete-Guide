@@ -7,3 +7,4 @@ Finished Chapters:
 - Chapter 5: Working with Express.js
 - Chapter 6: Working with Dynamic Content & Adding Templating Engines
 - Chapter 7: The Model View Controller (MVC)
+- Chapter 8: Optional: Enhancing the App
