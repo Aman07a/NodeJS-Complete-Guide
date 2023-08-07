@@ -1,1 +1,8 @@
-[{"title":"Book"}]
+[
+  {
+    "title": "A Book",
+    "imageUrl": "https://a.storyblok.com/f/42126/c3ae1d7c78/nodejs-the-complete-guide.png",
+    "description": "This is an awesome book!",
+    "price": "19.99"
+  }
+]
