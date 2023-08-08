@@ -25,3 +25,19 @@
 .product__description {
   text-align: center;
 }
+
+.product__detail {
+  width: 30rem;
+  height: 33rem;
+  overflow: hidden;
+}
+
+.product__image {
+  width: 100%;
+  height: 16rem;
+  overflow: hidden;
+}
+
+.product__image img {
+  width: 100%;
+}
