@@ -8,3 +8,4 @@ Finished Chapters:
 - Chapter 6: Working with Dynamic Content & Adding Templating Engines
 - Chapter 7: The Model View Controller (MVC)
 - Chapter 8: Optional: Enhancing the App
+- Chapter 9: Dynamic Routes & Advanced Models
