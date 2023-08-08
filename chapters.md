@@ -9,3 +9,4 @@ Finished Chapters:
 - Chapter 7: The Model View Controller (MVC)
 - Chapter 8: Optional: Enhancing the App
 - Chapter 9: Dynamic Routes & Advanced Models
+- Chapter 10: SQL Introduction
