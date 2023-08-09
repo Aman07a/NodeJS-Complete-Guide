@@ -10,3 +10,4 @@ Finished Chapters:
 - Chapter 8: Optional: Enhancing the App
 - Chapter 9: Dynamic Routes & Advanced Models
 - Chapter 10: SQL Introduction
+- Chapter 11: Understanding Sequelize
