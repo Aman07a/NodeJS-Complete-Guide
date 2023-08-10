@@ -11,3 +11,4 @@ Finished Chapters:
 - Chapter 9: Dynamic Routes & Advanced Models
 - Chapter 10: SQL Introduction
 - Chapter 11: Understanding Sequelize
+- Chapter 12: Working with NoSQL & Using MongoDB
