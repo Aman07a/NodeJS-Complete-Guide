@@ -5,7 +5,7 @@ const ObjectId = mongodb.ObjectId;
 
 class User {
   constructor(username, email) {
-    this.name = this.username;
+    this.name = username;
     this.email = email;
   }
 
@@ -16,7 +16,7 @@ class User {
 
   static findByPk(userId) {
     const db = getDb();
-    return db.collection('users').insertOne({ _id: ObjectId(userId) });
+    return db.collection('users').findOne({ _id: new ObjectId(userId) });
   }
 }
 

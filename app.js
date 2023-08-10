@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  User.findByPk('64d4eb568edb426f4874dc47')
+  User.findByPk('64d502b56dff1553d97c37c6')
     .then((user) => {
       req.user = user;
       next();
