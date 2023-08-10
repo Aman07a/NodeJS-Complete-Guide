@@ -7,7 +7,7 @@ class Product {
     this.price = price;
     this.description = description;
     this.imageUrl = imageUrl;
-    this._id = new mongodb.ObjectId(id);
+    this._id = id ? new mongodb.ObjectId(id) : null;
   }
 
   save() {
@@ -60,7 +60,7 @@ class Product {
       });
   }
 
-    static deleteByPk(prodId) {
+  static deleteByPk(prodId) {
     const db = getDb();
     return db
       .collection('products')
