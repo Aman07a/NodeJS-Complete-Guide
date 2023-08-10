@@ -14,8 +14,8 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 // const shopRoutes = require('./routes/shop');
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -35,7 +35,5 @@ app.use('/admin', adminRoutes);
 app.use(errorController.get404);
 
 mongoConnect(() => {
-  app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-  });
+  app.listen(3000);
 });
