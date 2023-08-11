@@ -12,3 +12,4 @@ Finished Chapters:
 - Chapter 10: SQL Introduction
 - Chapter 11: Understanding Sequelize
 - Chapter 12: Working with NoSQL & Using MongoDB
+- Chapter 13: Working with Mongoose
