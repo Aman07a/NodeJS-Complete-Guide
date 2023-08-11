@@ -47,7 +47,6 @@ exports.getCart = async (req, res, next) => {
   await req.user
     .populate('cart.items.productId')
     .then((user) => {
-      console.log(user.cart.items);
       const products = user.cart.items;
       res.render('shop/cart', {
         path: '/cart',
@@ -96,6 +95,9 @@ exports.postOrder = async (req, res, next) => {
       });
       return order.save();
     })
+    .then((result) => {
+      return req.user.clearCart();
+    })
     .then(() => {
       res.redirect('/orders');
     })
@@ -103,8 +105,7 @@ exports.postOrder = async (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  req.user
-    .getOrders()
+  Order.find({ 'user.userId': req.user._id })
     .then((orders) => {
       res.render('shop/orders', {
         path: '/orders',
