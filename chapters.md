@@ -13,3 +13,4 @@ Finished Chapters:
 - Chapter 11: Understanding Sequelize
 - Chapter 12: Working with NoSQL & Using MongoDB
 - Chapter 13: Working with Mongoose
+- Chapter 14: Sessions & Cookies
