@@ -39,8 +39,11 @@ exports.postLogin = (req, res, next) => {
             req.session.isLoggedIn = true;
             req.session.user = user;
             return req.session.save((err) => {
-              console.log(err);
-              res.redirect('/');
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/');
+              }
             });
           }
           res.redirect('/login');
@@ -83,7 +86,10 @@ exports.postSignup = (req, res, next) => {
 
 exports.postLogout = (req, res, next) => {
   req.session.destroy((err) => {
-    console.log(err);
-    res.redirect('/');
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/');
+    }
   });
 };
