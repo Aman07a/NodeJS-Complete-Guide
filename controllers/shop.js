@@ -46,10 +46,9 @@ exports.getIndex = (req, res, next) => {
     });
 };
 
-exports.getCart = (req, res, next) => {
-  req.user
+exports.getCart = async (req, res, next) => {
+  await req.user
     .populate('cart.items.productId')
-    .execPopulate()
     .then((user) => {
       const products = user.cart.items;
       res.render('shop/cart', {
@@ -84,10 +83,9 @@ exports.postCartDeleteProduct = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-exports.postOrder = (req, res, next) => {
-  req.user
+exports.postOrder = async (req, res, next) => {
+  await req.user
     .populate('cart.items.productId')
-    .execPopulate()
     .then((user) => {
       const products = user.cart.items.map((i) => {
         return { quantity: i.quantity, product: { ...i.productId._doc } };
