@@ -15,3 +15,4 @@ Finished Chapters:
 - Chapter 13: Working with Mongoose
 - Chapter 14: Sessions & Cookies
 - Chapter 15: Adding Authentication
+- Chapter 16: Sending Emails
