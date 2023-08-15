@@ -16,3 +16,4 @@ Finished Chapters:
 - Chapter 14: Sessions & Cookies
 - Chapter 15: Adding Authentication
 - Chapter 16: Sending Emails
+- Chapter 17: Advanced Authentication
