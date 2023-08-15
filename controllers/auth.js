@@ -1,6 +1,13 @@
 const bcrypt = require('bcryptjs');
+const nodemailer = require('nodemailer');
+const sendGridTransport = require('nodemailer-sendgrid-transport');
+const sgMail = require('@sendgrid/mail');
 
 const User = require('../models/user');
+
+sgMail.setApiKey(
+  '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'
+);
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -88,7 +95,23 @@ exports.postSignup = (req, res, next) => {
           return user.save();
         })
         .then((result) => {
+          const msg = {
+            to: email,
+            from: 'aman16.aa17@gmail.com',
+            subject: 'Signup succeeded!',
+            html: '<h1>You successfully signed up!</h1>',
+          };
+          sgMail.send(msg, function (err, info) {
+            if (err) {
+              console.log('Email Not Sent');
+            } else {
+              console.log('Email Sent Successfull');
+            }
+          });
           res.redirect('/login');
+        })
+        .catch((err) => {
+          console.log(err);
         });
     })
     .catch((err) => {
