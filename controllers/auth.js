@@ -2,15 +2,20 @@ const crypto = require('crypto');
 
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
-const sendGridTransport = require('nodemailer-sendgrid-transport');
-const sgMail = require('@sendgrid/mail');
+const sendgridTransport = require('nodemailer-sendgrid-transport');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const User = require('../models/user');
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const transporter = nodemailer.createTransport(
+  sendgridTransport({
+    auth: {
+      api_key: process.env.SENDGRID_API_KEY,
+    },
+  })
+);
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -98,20 +103,13 @@ exports.postSignup = (req, res, next) => {
           return user.save();
         })
         .then((result) => {
-          const msg = {
+          res.redirect('/login');
+          return transporter.sendMail({
             to: email,
             from: 'aman16.aa17@gmail.com',
             subject: 'Signup succeeded!',
             html: '<h1>You successfully signed up!</h1>',
-          };
-          sgMail.send(msg, function (err, info) {
-            if (err) {
-              console.log('Email Not Send');
-            } else {
-              console.log('Email Send Successfull');
-            }
           });
-          res.redirect('/login');
         })
         .catch((err) => {
           console.log(err);
@@ -164,23 +162,16 @@ exports.postReset = (req, res, next) => {
         return user.save();
       })
       .then((result) => {
-        const msg = {
+        res.redirect('/');
+        transporter.sendMail({
           to: req.body.email,
           from: 'aman16.aa17@gmail.com',
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:3000/reset/${token}"link</a> to set a new password</p>
+            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
           `,
-        };
-        sgMail.send(msg, function (err, info) {
-          if (err) {
-            console.log('Password Reset Not Send');
-          } else {
-            console.log('Password Reset Send Successfull');
-          }
         });
-        res.redirect('/');
       })
       .catch((err) => {
         console.log(err);
