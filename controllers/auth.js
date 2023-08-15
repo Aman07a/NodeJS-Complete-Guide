@@ -2,12 +2,13 @@ const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendGridTransport = require('nodemailer-sendgrid-transport');
 const sgMail = require('@sendgrid/mail');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const User = require('../models/user');
 
-sgMail.setApiKey(
-  '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'
-);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
