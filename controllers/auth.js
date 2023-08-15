@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendGridTransport = require('nodemailer-sendgrid-transport');
@@ -104,9 +106,9 @@ exports.postSignup = (req, res, next) => {
           };
           sgMail.send(msg, function (err, info) {
             if (err) {
-              console.log('Email Not Sent');
+              console.log('Email Not Send');
             } else {
-              console.log('Email Sent Successfull');
+              console.log('Email Send Successfull');
             }
           });
           res.redirect('/login');
@@ -141,5 +143,47 @@ exports.getReset = (req, res, next) => {
     path: '/reset',
     pageTitle: 'Reset Password',
     errorMessage: message,
+  });
+};
+
+exports.postReset = (req, res, next) => {
+  crypto.randomBytes(32, (err, buffer) => {
+    if (err) {
+      console.log(err);
+      return res.redirect('/reset');
+    }
+    const token = buffer.toString('hex');
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (!user) {
+          req.flash('error', 'No account with that email found.');
+          return res.redirect('/reset');
+        }
+        user.resetToken = token;
+        user.resetTokenExpiration = Date.now() + 3600000;
+        return user.save();
+      })
+      .then((result) => {
+        const msg = {
+          to: req.body.email,
+          from: 'aman16.aa17@gmail.com',
+          subject: 'Password reset',
+          html: `
+            <p>You requested a password reset</p>
+            <p>Click this <a href="http://localhost:3000/reset/${token}"link</a> to set a new password</p>
+          `,
+        };
+        sgMail.send(msg, function (err, info) {
+          if (err) {
+            console.log('Password Reset Not Send');
+          } else {
+            console.log('Password Reset Send Successfull');
+          }
+        });
+        res.redirect('/');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };
