@@ -12,7 +12,6 @@
       action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>"
       method="POST"
     >
-      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <div class="form-control">
         <label for="title">Title</label>
         <input
@@ -51,6 +50,7 @@
       <input type="hidden" value="<%= product._id %>" name="productId" />
       <% } %>
 
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
       <button class="btn" type="submit">
         <% if (editing) { %>Update Product<% } else { %>Add Product<% } %>
       </button>
