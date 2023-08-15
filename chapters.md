@@ -14,3 +14,4 @@ Finished Chapters:
 - Chapter 12: Working with NoSQL & Using MongoDB
 - Chapter 13: Working with Mongoose
 - Chapter 14: Sessions & Cookies
+- Chapter 15: Adding Authentication
