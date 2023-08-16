@@ -18,3 +18,4 @@ Finished Chapters:
 - Chapter 16: Sending Emails
 - Chapter 17: Advanced Authentication
 - Chapter 18: Understanding Validation
+- Chapter 19: Error Handling
