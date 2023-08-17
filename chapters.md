@@ -21,3 +21,4 @@ Finished Chapters:
 - Chapter 19: Error Handling
 - Chapter 20: File Upload & Download
 - Chapter 21: Adding Pagination
+- Chapter 22: Understanding Async Requests
