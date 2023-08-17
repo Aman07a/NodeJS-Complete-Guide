@@ -20,3 +20,4 @@ Finished Chapters:
 - Chapter 18: Understanding Validation
 - Chapter 19: Error Handling
 - Chapter 20: File Upload & Download
+- Chapter 21: Adding Pagination
