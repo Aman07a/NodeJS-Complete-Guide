@@ -19,3 +19,4 @@ Finished Chapters:
 - Chapter 17: Advanced Authentication
 - Chapter 18: Understanding Validation
 - Chapter 19: Error Handling
+- Chapter 20: File Upload & Download
