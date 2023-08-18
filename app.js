@@ -5,8 +5,8 @@ const feedRoutes = require('./routes/feed');
 
 const app = express();
 
-// app.use(bodyParser.urlencoded()); // x-www-form-urlencoded <form>
-app.use(bodyParser.json()); // application/json
+app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(express.json());
 
 app.use('/feed', feedRoutes);
 
