@@ -23,3 +23,4 @@ Finished Chapters:
 - Chapter 21: Adding Pagination
 - Chapter 22: Understanding Async Requests
 - Chapter 23: Adding Payments
+- Chapter 24: Working with REST APIs - The Basics
