@@ -25,3 +25,4 @@ Finished Chapters:
 - Chapter 23: Adding Payments
 - Chapter 24: Working with REST APIs - The Basics
 - Chapter 25: Working with REST APIs - The Practical Application
+- Chapter 26: Understanding Async Await in Node.js
