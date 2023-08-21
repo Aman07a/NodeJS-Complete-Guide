@@ -28,3 +28,4 @@ Finished Chapters:
 - Chapter 26: Understanding Async Await in Node.js
 - Chapter 27: Understanding Websockets & Socket.io
 - Chapter 28: Working with GraphQL
+- Chapter 29: Deploying our App
