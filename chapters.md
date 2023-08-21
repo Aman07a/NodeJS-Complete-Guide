@@ -26,3 +26,4 @@ Finished Chapters:
 - Chapter 24: Working with REST APIs - The Basics
 - Chapter 25: Working with REST APIs - The Practical Application
 - Chapter 26: Understanding Async Await in Node.js
+- Chapter 27: Understanding Websockets & Socket.io
