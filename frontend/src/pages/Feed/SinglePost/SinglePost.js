@@ -13,7 +13,7 @@ class SinglePost extends Component {
   };
 
   componentDidMount() {
-    const postId = this.props.match.params.postId;
+    // const postId = this.props.match.params.postId;
     fetch('URL')
       .then((res) => {
         if (res.status !== 200) {
