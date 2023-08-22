@@ -29,3 +29,4 @@ Finished Chapters:
 - Chapter 27: Understanding Websockets & Socket.io
 - Chapter 28: Working with GraphQL
 - Chapter 29: Deploying our App
+- Chapter 30: Testing Node.js Applications
