@@ -30,3 +30,4 @@ Finished Chapters:
 - Chapter 28: Working with GraphQL
 - Chapter 29: Deploying our App
 - Chapter 30: Testing Node.js Applications
+- Chapter 31: Node.js as a Build Tool & Using npm
