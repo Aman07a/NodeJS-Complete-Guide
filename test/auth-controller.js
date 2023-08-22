@@ -5,13 +5,34 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 const AuthController = require('../controllers/auth');
 
-describe('Auth Controller', function () {
-  before(function (done) {
+describe('Auth Controller - Login', function () {
+  it('should throw an error with code 500 if accessing the database fails', function (done) {
+    sinon.stub(User, 'findOne');
+    User.findOne.throws();
+
+    const req = {
+      body: {
+        email: 'test@test.com',
+        password: 'tester',
+      },
+    };
+
+    AuthController.login(req, {}, () => {}).then((result) => {
+      expect(result).to.be.an('error');
+      expect(result).to.have.property('statusCode', 500);
+      done();
+    });
+
+    User.findOne.restore();
+  });
+
+  it('should send a response with a valid user status for an existing user', function (done) {
     mongoose
       .connect(
-        'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/test-messages?retryWrites=true'
+        'mongodb+srv://aman16aa17:mongodb-nodejs@cluster0.ogqbk9c.mongodb.net/test-messages?retryWrites=true',
+        { useNewUrlParser: true, useUnifiedTopology: true }
       )
-      .then((result) => {
+      .then(() => {
         const user = new User({
           email: 'test@test.com',
           password: 'tester',
@@ -22,28 +43,28 @@ describe('Auth Controller', function () {
         return user.save();
       })
       .then(() => {
-        done();
+        const req = { userId: '5c0f66b979af55031b34728a' };
+        const res = {
+          statusCode: 500,
+          userStatus: null,
+          status: function (code) {
+            this.statusCode = code;
+            return this;
+          },
+          json: function (data) {
+            this.statusCode = data.status;
+          },
+        };
+
+        AuthController.getUserStatus(req, res, () => {}).then(() => {
+          expect(res.statusCode).to.be.equal(200);
+          expect(res.userStatus).to.be.equal('I am new!');
+          done();
+        });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.error(err);
+        done(err);
+      });
   });
-});
-
-it('should throw an error with code 500 if accessing the database fails', function (done) {
-  sinon.stub(User, 'findOne');
-  User.findOne.throws();
-
-  const req = {
-    body: {
-      email: 'test@test.com',
-      password: 'tester',
-    },
-  };
-
-  AuthController.login(req, {}, () => {}).then((result) => {
-    expect(result).to.be.an('error');
-    expect(result).to.have.property('statusCode', 500);
-    done();
-  });
-
-  User.findOne.restore();
 });
