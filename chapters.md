@@ -31,3 +31,4 @@ Finished Chapters:
 - Chapter 29: Deploying our App
 - Chapter 30: Testing Node.js Applications
 - Chapter 31: Node.js as a Build Tool & Using npm
+- Chapter 32: Modern JavaScript & NodeJS
