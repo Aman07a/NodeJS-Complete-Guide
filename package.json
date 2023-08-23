@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc app.ts"
+    "start": "node src/app.js",
+    "typscript": "tsc src/app.ts"
   },
   "author": "Aman07a",
   "license": "ISC",
