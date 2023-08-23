@@ -32,3 +32,4 @@ Finished Chapters:
 - Chapter 30: Testing Node.js Applications
 - Chapter 31: Node.js as a Build Tool & Using npm
 - Chapter 32: Modern JavaScript & NodeJS
+- Chapter 33: NodeJS & TypeScript
