@@ -1,16 +1,9 @@
-import { serveListener } from 'https://deno.land/std@0.199.0/http/server.ts';
+import { Application, Context } from 'https://deno.land/x/oak@v12.6.0/mod.ts';
 
-const listener = Deno.listen({ port: 3000 });
-console.log('Server is running on http://localhost:3000/');
+const app = new Application();
 
-for await (const conn of listener) {
-  serveConnection(conn);
-}
+app.use((ctx: Context) => {
+  ctx.response.body = 'Hello World!';
+});
 
-async function serveConnection(conn: Deno.Conn) {
-  const httpConn = Deno.serveHttp(conn);
-  for await (const requestEvent of httpConn) {
-    const { request } = requestEvent;
-    requestEvent.respondWith(new Response('Hello World\n'));
-  }
-}
+await app.listen({ port: 8000 });
