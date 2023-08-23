@@ -1,9 +1,16 @@
-const text = 'This is a test - and it should be stored in a file!';
+import { serveListener } from 'https://deno.land/std/http/server.ts';
 
-const encoder = new TextEncoder();
-const data = encoder.encode(text);
+const listener = Deno.listen({ port: 3000 });
+console.log('Server is running on http://localhost:3000/');
 
-// deno run --allow-write=message.txt app.ts
-Deno.writeFile('message.txt', data).then(() => {
-  console.log('Wrote to file!');
-});
+for await (const conn of listener) {
+  serveConnection(conn);
+}
+
+async function serveConnection(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    const { request } = requestEvent;
+    requestEvent.respondWith(new Response('Hello World\n'));
+  }
+}
