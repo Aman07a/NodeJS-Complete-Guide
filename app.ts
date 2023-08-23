@@ -1,4 +1,4 @@
-import { serveListener } from 'https://deno.land/std/http/server.ts';
+import { serveListener } from 'https://deno.land/std@0.199.0/http/server.ts';
 
 const listener = Deno.listen({ port: 3000 });
 console.log('Server is running on http://localhost:3000/');
